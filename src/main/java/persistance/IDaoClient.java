@@ -5,13 +5,11 @@ import entities.Client;
 import java.util.List;
 import java.util.Optional;
 
-public interface IDao {
+public interface IDaoClient {
 
     void save (Client c);
 
-    Optional<Client> findById(int id);
+    Optional<Client> findById(Long id);
 
-    void delete (int id);
-
-    List<Client> findAll();
+    void delete (Client id);
 }
