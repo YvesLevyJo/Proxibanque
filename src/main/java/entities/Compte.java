@@ -1,16 +1,24 @@
 package entities;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import java.util.List;
 public abstract class Compte {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    Long numero;
     static int nbCompte;
     static List<Compte> comptes;
-    int numero;
+
     double solde;
     String dateOuverture;
+
+    @ManyToOne
     Client client;
 
-    public Compte(int numero, double solde, Client client) {
+    public Compte(Long numero, double solde, Client client) {
         this.numero = numero;
         this.solde = solde;
         this.dateOuverture = "today";
@@ -25,11 +33,11 @@ public abstract class Compte {
         nbCompte++;
     }
 
-    public int getNumero() {
+    public Long getNumero() {
         return numero;
     }
 
-    public void setNumero(int numero) {
+    public void setNumero(Long numero) {
         this.numero = numero;
     }
 

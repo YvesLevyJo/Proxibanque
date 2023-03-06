@@ -1,9 +1,13 @@
 package entities;
+
+import javax.persistence.Entity;
+
+@Entity
 public class CompteCourant extends Compte{
 
     double autorisaiotnDecouvert;
 
-    public CompteCourant(int numero, double solde, Client client) {
+    public CompteCourant(Long numero, double solde, Client client) {
         super(numero, solde, client);
         this.autorisaiotnDecouvert = 1000.0;
     }

@@ -1,16 +1,21 @@
 package entities;
 
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Collection;
-
-public class Client {
-
+    @Entity
+    public class Client {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String prenom;
     private String nom;
     private String adresse;
+    @OneToMany(mappedBy = "client")
+
     Collection<Compte> listeComptes = new ArrayList<>();
     TypeDeCarte carte;
-    private int id;
+
 
     // Constructeur
     public Client(String prenom, String nom, String adresse) {
@@ -44,11 +49,11 @@ public class Client {
         this.adresse = adresse;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
