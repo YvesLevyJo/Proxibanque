@@ -12,10 +12,7 @@ import java.util.Collection;
     private String nom;
     private String adresse;
     @OneToMany(mappedBy = "client")
-
-    Collection<Compte> listeComptes = new ArrayList<>();
-    TypeDeCarte carte;
-
+    Collection<CompteCourant> listeComptes = new ArrayList<>();
 
     // Constructeur
     public Client(String prenom, String nom, String adresse) {
@@ -63,15 +60,15 @@ import java.util.Collection;
         return "Client [prenom=" + prenom + ", nom=" + nom + ", adresse=" + adresse + "]";
     }
 
-    public Collection<Compte> getListeComptes() {
+    public Collection<CompteCourant> getListeComptes() {
         return listeComptes;
     }
 
-    public void addCompte(Compte c) {
+    public void addCompte(CompteCourant c) {
         listeComptes.add(c);
     }
 
-    public void setListeComptes(Compte compte) {
+    public void setListeComptes(CompteCourant compte) {
         addCompte(compte);
     }
 }
